@@ -27,25 +27,23 @@
                                     Add category
                                 </div>
                                 <div>
-                                    <a href="{{route('admin.categories')}}" class="btn btn-success">All Categories</a>
+                                    <a href="{{route('admin.categories')}}" class="btn btn-success float-end">All Categories</a>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="" method="post">
+                            <form action="{{route("admin.category.store")}}" method="POST">
+                                @csrf
                                 <div class="mb-3 mt-3">
                                     <label for="name" class="form-label">Name</label>
-                                    <input type="text" name="name" class="form-control" placeholder="Enter category name">
-                                </div>
-                                <div class="mb-3 mt-3">
-                                    <label for="slug" class="form-label">Name</label>
-                                    <input type="text" name="slug" class="form-control" placeholder="Enter category slug">
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter category name">
+                                    @error('name') <span class="error">{{ $message }}</span> @enderror
                                 </div>
                                 <button type="submit" class="btn btn-success float-end">Submit</button>
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
     </section>
